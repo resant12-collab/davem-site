@@ -1,3 +1,10 @@
 node_modules/
 .netlify/
 *.bak
+
+# ferramentas locais antigas (nao vao para o site)
+server.js
+admin-local.html
+iniciar.bat
+package.json
+package-lock.json
