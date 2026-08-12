@@ -1,0 +1,37 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "uploads"
+public_folder: "/uploads"
+
+locale: "pt"
+
+collections:
+  - name: "galeria"
+    label: "Galeria de Fotos"
+    files:
+      - name: "fotos"
+        label: "Fotos da Galeria"
+        file: "galeria.json"
+        description: "Adicione, edite ou remova as fotos que aparecem na galeria do site."
+        fields:
+          - name: "itens"
+            label: "Fotos"
+            label_singular: "Foto"
+            widget: "list"
+            summary: "{{fields.titulo}} — {{fields.categoria}}"
+            fields:
+              - { name: "imagem",    label: "Foto",       widget: "image" }
+              - name: "categoria"
+                label: "Categoria"
+                widget: "select"
+                options:
+                  - { label: "Guarda Corpo",          value: "guardacorpo" }
+                  - { label: "Corrimão",              value: "corrimao" }
+                  - { label: "Box de Banheiro",       value: "box" }
+                  - { label: "Portões",               value: "portao" }
+                  - { label: "Móveis de Alumínio",    value: "moveis" }
+                  - { label: "Cobertura e Pergolado", value: "cobertura" }
+              - { name: "titulo",    label: "Título",     widget: "string", default: "" }
+              - { name: "subtitulo", label: "Descrição",  widget: "string", default: "Projeto Residencial", required: false }

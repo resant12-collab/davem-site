@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DAVEM — Painel Administrativo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --blue:  #0a1628;
+      --blue2: #1a3a6e;
+      --red:   #c8151b;
+      --gray:  #f4f6fa;
+      --gray2: #e2e8f0;
+      --text:  #1e293b;
+      --sub:   #64748b;
+    }
+    body { font-family: 'Inter', sans-serif; background: var(--gray); color: var(--text); min-height: 100vh; }
+
+    /* ── Login ── */
+    #loginScreen {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, var(--blue) 0%, var(--blue2) 100%);
+    }
+    .login-box {
+      background: white;
+      border-radius: 20px;
+      padding: 48px 40px;
+      width: 100%; max-width: 400px;
+      text-align: center;
+      box-shadow: 0 24px 64px rgba(0,0,0,.3);
+    }
+    .login-box img { height: 72px; object-fit: contain; margin-bottom: 24px; }
+    .login-box h2 { font-size: 1.4rem; color: var(--blue); margin-bottom: 6px; }
+    .login-box p  { color: var(--sub); font-size: .9rem; margin-bottom: 28px; }
+    .login-box input {
+      width: 100%; padding: 13px 16px;
+      border: 2px solid var(--gray2); border-radius: 8px;
+      font-size: 1rem; font-family: inherit;
+      margin-bottom: 14px; outline: none;
+      transition: border-color .2s;
+    }
+    .login-box input:focus { border-color: var(--blue2); }
+    .login-box button {
+      width: 100%; padding: 14px;
+      background: var(--red); color: white;
+      border: none; border-radius: 8px;
+      font-size: 1rem; font-weight: 700; cursor: pointer;
+      transition: background .2s;
+    }
+    .login-box button:hover { background: #a01015; }
+    .login-error { color: var(--red); font-size: .85rem; margin-top: 10px; display: none; }
+
+    /* ── Admin ── */
+    #adminScreen { display: none; }
+
+    .admin-header {
+      background: var(--blue);
+      padding: 0 32px;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 72px;
+      position: sticky; top: 0; z-index: 100;
+      box-shadow: 0 2px 16px rgba(0,0,0,.3);
+    }
+    .admin-header img { height: 56px; object-fit: contain; }
+    .admin-header-right { display: flex; align-items: center; gap: 16px; }
+    .admin-header h1 { color: white; font-size: 1rem; font-weight: 600; }
+    .btn-logout {
+      background: rgba(255,255,255,.12);
+      color: white; border: 1px solid rgba(255,255,255,.2);
+      padding: 8px 18px; border-radius: 8px;
+      font-size: .85rem; font-weight: 600; cursor: pointer;
+      transition: background .2s;
+    }
+    .btn-logout:hover { background: rgba(255,255,255,.2); }
+
+    .admin-body { max-width: 1200px; margin: 0 auto; padding: 36px 24px; }
+
+    .admin-title { font-size: 1.5rem; font-weight: 800; color: var(--blue); margin-bottom: 6px; }
+    .admin-sub   { color: var(--sub); font-size: .93rem; margin-bottom: 32px; }
+
+    /* Category cards */
+    .cat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 24px;
+    }
+    .cat-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 2px 16px rgba(0,0,0,.07);
+      border: 1px solid var(--gray2);
+    }
+    .cat-header {
+      background: var(--blue);
+      padding: 16px 20px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .cat-header h3 { color: white; font-size: 1rem; font-weight: 700; }
+    .cat-count {
+      background: var(--red);
+      color: white;
+      font-size: .75rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 999px;
+    }
+    .cat-body { padding: 16px; }
+
+    /* Upload zone */
+    .upload-zone {
+      border: 2px dashed var(--gray2);
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: all .2s;
+      margin-bottom: 16px;
+      position: relative;
+    }
+    .upload-zone:hover, .upload-zone.dragover {
+      border-color: var(--blue2);
+      background: rgba(26,58,110,.04);
+    }
+    .upload-zone input { position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%; }
+    .upload-zone svg { width: 32px; height: 32px; color: var(--sub); margin-bottom: 8px; }
+    .upload-zone p { font-size: .85rem; color: var(--sub); }
+    .upload-zone strong { color: var(--blue); font-size: .9rem; display: block; margin-bottom: 4px; }
+
+    .upload-progress {
+      display: none;
+      align-items: center; gap: 10px;
+      font-size: .85rem; color: var(--sub);
+      margin-bottom: 12px;
+    }
+    .progress-bar { flex: 1; height: 6px; background: var(--gray2); border-radius: 999px; overflow: hidden; }
+    .progress-fill { height: 100%; background: var(--red); border-radius: 999px; width: 0; transition: width .3s; }
+
+    /* Photo grid */
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      max-height: 280px;
+      overflow-y: auto;
+    }
+    .photo-thumb {
+      position: relative;
+      aspect-ratio: 1;
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--gray);
+    }
+    .photo-thumb img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .photo-del {
+      position: absolute;
+      top: 4px; right: 4px;
+      background: rgba(200,21,27,.9);
+      color: white;
+      border: none;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      font-size: .9rem;
+      cursor: pointer;
+      display: none;
+      align-items: center; justify-content: center;
+      line-height: 1;
+    }
+    .photo-thumb:hover .photo-del { display: flex; }
+
+    .empty-msg { color: var(--sub); font-size: .85rem; text-align: center; padding: 20px 0; }
+
+    /* Toast */
+    .toast {
+      position: fixed; bottom: 28px; right: 28px;
+      background: #166534; color: white;
+      padding: 14px 22px; border-radius: 10px;
+      font-size: .9rem; font-weight: 600;
+      box-shadow: 0 4px 20px rgba(0,0,0,.2);
+      transform: translateY(80px); opacity: 0;
+      transition: all .3s; z-index: 9999;
+    }
+    .toast.show { transform: translateY(0); opacity: 1; }
+    .toast.error { background: var(--red); }
+  </style>
+</head>
+<body>
+
+<!-- ── Login ── -->
+<div id="loginScreen">
+  <div class="login-box">
+    <img src="logo.png" alt="DAVEM" />
+    <h2>Painel Administrativo</h2>
+    <p>Digite a senha para acessar o gerenciamento de fotos</p>
+    <input type="password" id="passwordInput" placeholder="Senha" onkeydown="if(event.key==='Enter') doLogin()" />
+    <button onclick="doLogin()">Entrar</button>
+    <div class="login-error" id="loginError">Senha incorreta. Tente novamente.</div>
+  </div>
+</div>
+
+<!-- ── Admin ── -->
+<div id="adminScreen">
+  <div class="admin-header">
+    <img src="logo.png" alt="DAVEM" />
+    <div class="admin-header-right">
+      <h1>Painel de Fotos</h1>
+      <button class="btn-logout" onclick="logout()">Sair</button>
+    </div>
+  </div>
+
+  <div class="admin-body">
+    <p class="admin-title">Gerenciar Fotos da Galeria</p>
+    <p class="admin-sub">Adicione ou remova fotos de cada categoria. As alterações aparecem no site imediatamente.</p>
+    <div class="cat-grid" id="catGrid"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+let TOKEN = '';
+
+const CATEGORIES = [
+  { id: 'box',        label: 'Box de Banheiro',        folder: 'Box de Banheiro'          },
+  { id: 'portao',     label: 'Portões',                folder: 'Portões Aluminio'         },
+  { id: 'moveis',     label: 'Móveis de Alumínio',     folder: 'Moveis de Aluminio'       },
+  { id: 'guardacorpo',label: 'Guarda Corpo & Corrimão',folder: 'guarda corpo e corrimao'  },
+  { id: 'cobertura',  label: 'Coberturas e Pergolado', folder: 'Coberturas e pergolado'   },
+  { id: 'esquadrias', label: 'Esquadrias',             folder: 'Esquadrias'               },
+];
+
+function showToast(msg, error = false) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = 'toast show' + (error ? ' error' : '');
+  setTimeout(() => t.className = 'toast', 3000);
+}
+
+async function doLogin() {
+  const pw = document.getElementById('passwordInput').value;
+  const res = await fetch('/admin/login', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ password: pw })
+  });
+  const data = await res.json();
+  if (data.success) {
+    TOKEN = data.token;
+    document.getElementById('loginScreen').style.display = 'none';
+    document.getElementById('adminScreen').style.display = 'block';
+    loadAllCategories();
+  } else {
+    document.getElementById('loginError').style.display = 'block';
+  }
+}
+
+function logout() {
+  TOKEN = '';
+  document.getElementById('adminScreen').style.display = 'none';
+  document.getElementById('loginScreen').style.display = 'flex';
+  document.getElementById('passwordInput').value = '';
+}
+
+async function loadAllCategories() {
+  const grid = document.getElementById('catGrid');
+  grid.innerHTML = '';
+  for (const cat of CATEGORIES) {
+    const card = createCategoryCard(cat);
+    grid.appendChild(card);
+    loadPhotos(cat);
+  }
+}
+
+function createCategoryCard(cat) {
+  const card = document.createElement('div');
+  card.className = 'cat-card';
+  card.id = `card-${cat.id}`;
+  card.innerHTML = `
+    <div class="cat-header">
+      <h3>${cat.label}</h3>
+      <span class="cat-count" id="count-${cat.id}">0 fotos</span>
+    </div>
+    <div class="cat-body">
+      <div class="upload-zone" id="zone-${cat.id}">
+        <input type="file" accept="image/*" multiple onchange="uploadFiles('${cat.id}','${cat.folder}', this.files)" />
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+        <strong>Clique ou arraste fotos aqui</strong>
+        <p>JPG, PNG — até 20MB por foto</p>
+      </div>
+      <div class="upload-progress" id="progress-${cat.id}">
+        <div class="progress-bar"><div class="progress-fill" id="fill-${cat.id}"></div></div>
+        <span id="progress-text-${cat.id}">Enviando...</span>
+      </div>
+      <div class="photo-grid" id="photos-${cat.id}"></div>
+    </div>
+  `;
+
+  // Drag and drop
+  const zone = card.querySelector(`#zone-${cat.id}`);
+  zone.addEventListener('dragover', e => { e.preventDefault(); zone.classList.add('dragover'); });
+  zone.addEventListener('dragleave', () => zone.classList.remove('dragover'));
+  zone.addEventListener('drop', e => {
+    e.preventDefault();
+    zone.classList.remove('dragover');
+    uploadFiles(cat.id, cat.folder, e.dataTransfer.files);
+  });
+
+  return card;
+}
+
+async function loadPhotos(cat) {
+  const res = await fetch(`/admin/photos/${encodeURIComponent(cat.folder)}`, {
+    headers: { 'x-admin-token': TOKEN }
+  });
+  const photos = await res.json();
+  renderPhotos(cat, photos);
+}
+
+function renderPhotos(cat, photos) {
+  const grid  = document.getElementById(`photos-${cat.id}`);
+  const count = document.getElementById(`count-${cat.id}`);
+  count.textContent = `${photos.length} foto${photos.length !== 1 ? 's' : ''}`;
+
+  if (photos.length === 0) {
+    grid.innerHTML = '<p class="empty-msg">Nenhuma foto ainda</p>';
+    return;
+  }
+  grid.innerHTML = photos.map(p => `
+    <div class="photo-thumb" id="thumb-${CSS.escape(p.name)}">
+      <img src="${p.url}?t=${Date.now()}" alt="${p.name}" loading="lazy" />
+      <button class="photo-del" onclick="deletePhoto('${cat.folder}','${p.name}','${cat.id}')" title="Remover">✕</button>
+    </div>
+  `).join('');
+}
+
+async function uploadFiles(catId, folder, files) {
+  if (!files || files.length === 0) return;
+  const progress = document.getElementById(`progress-${catId}`);
+  const fill     = document.getElementById(`fill-${catId}`);
+  const text     = document.getElementById(`progress-text-${catId}`);
+
+  progress.style.display = 'flex';
+  fill.style.width = '10%';
+  text.textContent = `Enviando ${files.length} foto(s)...`;
+
+  const formData = new FormData();
+  Array.from(files).forEach(f => formData.append('photos', f));
+
+  const res = await fetch(`/admin/upload/${encodeURIComponent(folder)}`, {
+    method: 'POST',
+    headers: { 'x-admin-token': TOKEN },
+    body: formData
+  });
+
+  fill.style.width = '100%';
+  const data = await res.json();
+
+  setTimeout(() => { progress.style.display = 'none'; fill.style.width = '0'; }, 800);
+
+  if (data.success) {
+    showToast(`✅ ${data.files.length} foto(s) adicionada(s) com sucesso!`);
+    const cat = CATEGORIES.find(c => c.id === catId);
+    loadPhotos(cat);
+  } else {
+    showToast('Erro ao enviar fotos.', true);
+  }
+}
+
+async function deletePhoto(folder, fileName, catId) {
+  if (!confirm(`Remover a foto "${fileName}"?`)) return;
+  const res = await fetch(`/admin/photos/${encodeURIComponent(folder)}/${encodeURIComponent(fileName)}`, {
+    method: 'DELETE',
+    headers: { 'x-admin-token': TOKEN }
+  });
+  if (res.ok) {
+    showToast('🗑️ Foto removida!');
+    const cat = CATEGORIES.find(c => c.id === catId);
+    loadPhotos(cat);
+  } else {
+    showToast('Erro ao remover foto.', true);
+  }
+}
+</script>
+</body>
+</html>

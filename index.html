@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DAVEM Alumínio e Vidros</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ══════════════════════ HEADER ══════════════════════ -->
+  <header id="header">
+    <div class="container header-inner">
+      <a href="#home" class="logo-link">
+        <img src="logo.png" alt="DAVEM Alumínio e Vidros" class="logo" />
+      </a>
+      <nav class="nav" id="nav">
+        <a href="#home">Início</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#galeria">Galeria</a>
+        <a href="#contato">Contato</a>
+      </nav>
+      <a href="#contato" class="btn btn-header">Solicitar Orçamento</a>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ══════════════════════ HERO BANNER SLIDER ══════════════════════ -->
+  <section id="home" class="hero">
+    <div class="slides-wrapper" id="slidesWrapper">
+
+      <div class="slide slide-1 active">
+        <div class="slide-overlay"></div>
+        <div class="slide-content">
+          <span class="slide-tag">Sofisticação &amp; Funcionalidade</span>
+          <h1>Móveis em<br /><em>Alumínio</em></h1>
+          <p>Transforme seu ambiente com móveis planejados em vidro e alumínio que unem elegância, durabilidade e design moderno.</p>
+          <div class="slide-btns">
+            <a href="#contato" class="btn btn-primary">Solicitar Orçamento</a>
+            <a href="#galeria" class="btn btn-outline goto-gallery" data-filter="moveis">Galeria</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide slide-2">
+        <div class="slide-overlay"></div>
+        <div class="slide-content">
+          <span class="slide-tag">Estruturas &amp; Acabamentos</span>
+          <h1>Coberturas<br /><em>&amp; Pergolados</em></h1>
+          <p>Coberturas em alumínio e vidro, pergolados e estruturas para áreas externas e de lazer, fabricados sob medida.</p>
+          <div class="slide-btns">
+            <a href="#contato" class="btn btn-primary">Solicitar Orçamento</a>
+            <a href="#galeria" class="btn btn-outline goto-gallery" data-filter="cobertura">Galeria</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide slide-3">
+        <div class="slide-overlay"></div>
+        <div class="slide-content">
+          <span class="slide-tag">Vidraçaria Completa</span>
+          <h1>Box, Espelhos<br /><em>&amp; Temperados</em></h1>
+          <p>Vidros temperados, laminados, box para banheiro, espelhos e muito mais com instalação profissional.</p>
+          <div class="slide-btns">
+            <a href="#contato" class="btn btn-primary">Solicitar Orçamento</a>
+            <a href="#galeria" class="btn btn-outline goto-gallery" data-filter="box">Galeria</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide slide-4">
+        <div class="slide-overlay"></div>
+        <div class="slide-content">
+          <span class="slide-tag">Segurança &amp; Praticidade</span>
+          <h1>Portões Automáticos<br /><em>de Alumínio</em></h1>
+          <p>Mais segurança, praticidade e conforto para sua família. Portões automáticos sob medida fabricados na nossa própria serralheria em Peruíbe - SP.</p>
+          <div class="slide-btns">
+            <a href="#contato" class="btn btn-primary">Solicitar Orçamento</a>
+            <a href="#galeria" class="btn btn-outline goto-gallery" data-filter="portao">Galeria</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Slider Controls -->
+    <button class="slide-arrow prev" id="prevSlide" aria-label="Anterior">&#8249;</button>
+    <button class="slide-arrow next" id="nextSlide" aria-label="Próximo">&#8250;</button>
+    <div class="slide-dots" id="slideDots">
+      <button class="dot active" data-index="0"></button>
+      <button class="dot" data-index="1"></button>
+      <button class="dot" data-index="2"></button>
+      <button class="dot" data-index="3"></button>
+    </div>
+
+    <!-- Scroll hint -->
+    <div class="scroll-hint">
+      <span>Rolar</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════ SOBRE ══════════════════════ -->
+  <section id="sobre" class="section about-section">
+    <div class="container about-grid">
+
+      <div class="about-text" data-aos>
+        <div class="about-accent-line"></div>
+        <p class="about-eyebrow">SOBRE A DAVEM</p>
+        <h2>Soluções Personalizadas para <strong>Seu Projeto</strong></h2>
+        <p>Se você está em busca de qualidade, precisão e design impecável, a DAVEM é o lugar certo! Com mais de 25 anos de experiência, somos referência em serralheria e vidraçaria em Peruíbe — SP. Nossa equipe altamente capacitada oferece soluções completas e sob medida, desde esquadrias de alumínio até vidros temperados, com produtos que garantem segurança e estética para o seu projeto. Tudo fabricado em nossa própria serralheria, com controle de qualidade em cada detalhe.</p>
+        <ul class="about-list">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            Box, guarda-corpo, portões e corrimões sob medida
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            Escadas, portas, janelas de alumínio e vidro
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            Linha exclusiva de móveis planejados em vidro e alumínio
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            Fabricação própria — da produção à instalação com precisão
+          </li>
+        </ul>
+        <a href="#contato" class="btn btn-primary">Solicitar Orçamento</a>
+      </div>
+
+      <div class="about-visual">
+        <div class="about-img-single">
+          <img src="sobre1.jpg" alt="DAVEM Alumínio e Vidros" />
+          <div class="experience-badge">
+            <strong>+25</strong>
+            <span>Anos de<br/>Experiência</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════ STATS BAR ══════════════════════ -->
+  <section class="stats-bar">
+    <div class="container stats-grid">
+      <div class="stat-item">
+        <strong class="count" data-target="25">0</strong><span>+</span>
+        <p>Anos de Experiência</p>
+      </div>
+      <div class="stat-item">
+        <strong class="count" data-target="1200">0</strong><span>+</span>
+        <p>Projetos Concluídos</p>
+      </div>
+      <div class="stat-item">
+        <strong class="count" data-target="98">0</strong><span>%</span>
+        <p>Clientes Satisfeitos</p>
+      </div>
+      <div class="stat-item">
+        <strong class="count" data-target="50">0</strong><span>+</span>
+        <p>Tipos de Serviços</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════ SERVIÇOS ══════════════════════ -->
+  <section id="servicos" class="section services-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">O que fazemos</span>
+        <h2>Nossos <strong>Serviços</strong></h2>
+        <p>Soluções completas em alumínio, vidro e serralheria para residências e empresas.</p>
+      </div>
+
+      <!-- Abas -->
+      <div class="srv-tabs">
+        <button class="srv-tab active" data-tab="0">Esquadrias</button>
+        <button class="srv-tab" data-tab="1">Móveis Planejados</button>
+        <button class="srv-tab" data-tab="2">Box Banheiro</button>
+        <button class="srv-tab" data-tab="3">Portões</button>
+        <button class="srv-tab" data-tab="5">Coberturas</button>
+      </div>
+
+      <!-- Painéis -->
+      <div class="srv-panels">
+
+        <div class="srv-panel active" data-panel="0">
+          <div class="srv-panel-img">
+            <img src="Esquadrias/Aba%20esquadrias.jpg" alt="Esquadrias de Alumínio" />
+          </div>
+          <div class="srv-panel-text">
+            <span class="section-tag">Serralheria</span>
+            <h3>Esquadrias de Alumínio</h3>
+            <p>Janelas, portas e fachadas em alumínio com perfis de alta resistência e acabamento premium. Soluções sob medida para residências e comércios com máxima durabilidade e estética.</p>
+            <ul class="srv-list">
+              <li>Janelas e portas de correr</li>
+              <li>Fachadas em alumínio</li>
+              <li>Perfis de alta resistência</li>
+              <li>Instalação profissional</li>
+            </ul>
+            <a href="https://wa.me/5513996750203" class="btn btn-primary" target="_blank">Solicitar Orçamento</a>
+          </div>
+        </div>
+
+        <div class="srv-panel" data-panel="1">
+          <div class="srv-panel-img">
+            <img src="Moveis%20de%20Aluminio/Aba%20moveis.jpg" alt="Móveis Planejados" />
+          </div>
+          <div class="srv-panel-text">
+            <span class="section-tag">Móveis</span>
+            <h3>Móveis Planejados em Vidro e Alumínio</h3>
+            <p>Transforme seu ambiente com móveis planejados que unem elegância, funcionalidade e durabilidade. O charme do vidro com a resistência do alumínio para criar espaços modernos que valorizam o seu lar.</p>
+            <ul class="srv-list">
+              <li>Armários e guarda-roupas</li>
+              <li>Divisórias em vidro</li>
+              <li>Projetos sob medida</li>
+              <li>Design moderno e sofisticado</li>
+            </ul>
+            <a href="https://wa.me/5513996750203" class="btn btn-primary" target="_blank">Solicitar Orçamento</a>
+          </div>
+        </div>
+
+        <div class="srv-panel" data-panel="2">
+          <div class="srv-panel-img">
+            <img src="Box%20de%20Banheiro/aba%20box.jpg" alt="Box para Banheiro" />
+          </div>
+          <div class="srv-panel-text">
+            <span class="section-tag">Vidraçaria</span>
+            <h3>Box para Banheiro</h3>
+            <p>Box em vidro temperado com ferragens inox e instalação precisa para seu banheiro. Elegância e segurança com vidros de alta qualidade e acabamento impecável.</p>
+            <ul class="srv-list">
+              <li>Vidro temperado certificado</li>
+              <li>Ferragens em inox</li>
+              <li>Box de abrir e de correr</li>
+              <li>Sob medida para seu espaço</li>
+            </ul>
+            <a href="https://wa.me/5513996750203" class="btn btn-primary" target="_blank">Solicitar Orçamento</a>
+          </div>
+        </div>
+
+        <div class="srv-panel" data-panel="3">
+          <div class="srv-panel-img">
+            <img src="Port%C3%B5es%20Aluminio/Aba%20portao.png" alt="Portões Automáticos" />
+          </div>
+          <div class="srv-panel-text">
+            <span class="section-tag">Serralheria</span>
+            <h3>Portões Automáticos de Alumínio</h3>
+            <p>Segurança, praticidade e conforto para sua família. Portões automáticos de alumínio sob medida fabricados na nossa própria serralheria com controle de qualidade em cada detalhe.</p>
+            <ul class="srv-list">
+              <li>Portões automáticos e manuais</li>
+              <li>Alumínio de alta durabilidade</li>
+              <li>Motor e automação inclusos</li>
+              <li>Fabricação e instalação própria</li>
+            </ul>
+            <a href="https://wa.me/5513996750203" class="btn btn-primary" target="_blank">Solicitar Orçamento</a>
+          </div>
+        </div>
+
+
+        <div class="srv-panel" data-panel="5">
+          <div class="srv-panel-img">
+            <img src="Coberturas%20e%20pergolado/Aba%20pergolado.png" alt="Coberturas e Pergolados" />
+          </div>
+          <div class="srv-panel-text">
+            <span class="section-tag">Estruturas</span>
+            <h3>Coberturas &amp; Pergolados</h3>
+            <p>Coberturas em alumínio e vidro, pergolados e estruturas para áreas externas e de lazer fabricados sob medida. Qualidade e elegância para transformar seus espaços ao ar livre.</p>
+            <ul class="srv-list">
+              <li>Coberturas em vidro e alumínio</li>
+              <li>Pergolados sob medida</li>
+              <li>Áreas de lazer e varanda</li>
+              <li>Estruturas metálicas</li>
+            </ul>
+            <a href="https://wa.me/5513996750203" class="btn btn-primary" target="_blank">Solicitar Orçamento</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════ GALERIA ══════════════════════ -->
+  <section id="galeria" class="section gallery-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Nosso Trabalho</span>
+        <h2>Portfólio de <strong>Projetos</strong></h2>
+        <p>Conheça alguns dos nossos projetos realizados com qualidade e dedicação.</p>
+      </div>
+
+      <div class="gallery-filters">
+        <button class="filter-btn active" data-filter="all">Todos</button>
+        <button class="filter-btn" data-filter="guardacorpo">Guarda Corpo</button>
+        <button class="filter-btn" data-filter="corrimao">Corrimão</button>
+        <button class="filter-btn" data-filter="box">Box Banheiro</button>
+        <button class="filter-btn" data-filter="portao">Portões</button>
+        <button class="filter-btn" data-filter="moveis">Móveis de Alumínio</button>
+        <button class="filter-btn" data-filter="cobertura">Cobertura e Pergolado</button>
+      </div>
+
+      <div class="gallery-grid" id="galleryGrid">
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════ CTA BANNER ══════════════════════ -->
+  <section class="cta-banner">
+    <div class="cta-overlay"></div>
+    <div class="container cta-content">
+      <h2>Pronto para transformar <em>seu espaço?</em></h2>
+      <p>Entre em contato agora e receba um orçamento sem compromisso.</p>
+      <a href="#contato" class="btn btn-primary btn-lg">Solicitar Orçamento Grátis</a>
+    </div>
+  </section>
+
+  <!-- ══════════════════════ CONTATO ══════════════════════ -->
+  <section id="contato" class="section contact-section">
+    <div class="container contact-grid">
+      <div class="contact-info" data-aos>
+        <span class="section-tag">Fale Conosco</span>
+        <h2>Entre em <strong>Contato</strong></h2>
+        <p>Nossa equipe está pronta para atender você e apresentar a melhor solução para o seu projeto.</p>
+
+        <div class="contact-items">
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="11" r="3" stroke="currentColor" stroke-width="2"/></svg>
+            </div>
+            <div>
+              <strong>Endereço</strong>
+              <span>Av. Luciano de Bona, 7525 - Josedy, Peruíbe - SP</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498A1 1 0 0121 17.72V19a2 2 0 01-2 2H17C9.163 21 3 14.837 3 7V5z" stroke="currentColor" stroke-width="2"/></svg>
+            </div>
+            <div>
+              <strong>Telefone / WhatsApp</strong>
+              <span>(13) 99675-0203</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke="currentColor" stroke-width="2"/></svg>
+            </div>
+            <div>
+              <strong>E-mail</strong>
+              <span>davemaluminio@gmail.com</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M12 6v6l4 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <div>
+              <strong>Horário de Atendimento</strong>
+              <span>Seg – Sex: 08h às 17h30</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="social-links">
+          <a href="#" aria-label="Instagram" class="social-btn">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook" class="social-btn">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="#" aria-label="WhatsApp" class="social-btn">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <form class="contact-form" id="contactForm" data-aos>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="nome">Nome *</label>
+            <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required />
+          </div>
+          <div class="form-group">
+            <label for="telefone">Telefone *</label>
+            <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" placeholder="seu@email.com" />
+        </div>
+        <div class="form-group">
+          <label for="servico">Tipo de Serviço</label>
+          <select id="servico" name="servico">
+            <option value="">Selecione um serviço...</option>
+            <option>Esquadrias de Alumínio</option>
+            <option>Vidros Temperados</option>
+            <option>Box para Banheiro</option>
+            <option>Portões e Grades</option>
+            <option>Espelhos</option>
+            <option>Coberturas e Pergolados</option>
+            <option>Outro</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="mensagem">Mensagem *</label>
+          <textarea id="mensagem" name="mensagem" rows="5" placeholder="Descreva seu projeto ou necessidade..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-full">Enviar Mensagem</button>
+        <div class="form-success" id="formSuccess">
+          Mensagem enviada com sucesso! Entraremos em contato em breve.
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ══════════════════════ FOOTER ══════════════════════ -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="logo.png" alt="DAVEM" class="footer-logo" />
+        <p>Av. Luciano de Bona, 7525 - Josedy, Peruíbe - SP<br/>(13) 99675-0203 &nbsp;|&nbsp; Seg–Sex: 08h às 17h30</p>
+      </div>
+      <div class="footer-links">
+        <h4>Serviços</h4>
+        <ul>
+          <li><a href="#servicos">Esquadrias de Alumínio</a></li>
+          <li><a href="#servicos">Vidros Temperados</a></li>
+          <li><a href="#servicos">Box para Banheiro</a></li>
+          <li><a href="#servicos">Portões e Grades</a></li>
+          <li><a href="#servicos">Espelhos</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="#sobre">Sobre Nós</a></li>
+          <li><a href="#galeria">Portfólio</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2026 DAVEM Alumínio e Vidros. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Float Button -->
+  <a href="https://wa.me/5513996750203" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose">&times;</button>
+    <button class="lightbox-arrow lightbox-prev" id="lightboxPrev">&#8249;</button>
+    <button class="lightbox-arrow lightbox-next" id="lightboxNext">&#8250;</button>
+    <div class="lightbox-img-wrap">
+      <img src="" alt="" id="lightboxImg" />
+    </div>
+    <div class="lightbox-caption" id="lightboxCaption"></div>
+  </div>
+
+  <script src="main.js"></script>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on('init', user => {
+        if (!user) {
+          window.netlifyIdentity.on('login', () => { document.location.href = '/admin/'; });
+        }
+      });
+    }
+  </script>
+</body>
+</html>
