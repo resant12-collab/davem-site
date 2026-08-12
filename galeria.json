@@ -182,12 +182,6 @@
                   },
                   {
                       "categoria":  "box",
-                      "imagem":  "Box de Banheiro/149457_264198343712819_1760215903_n.jpg",
-                      "titulo":  "Box de Banheiro",
-                      "subtitulo":  "Projeto Residencial"
-                  },
-                  {
-                      "categoria":  "box",
                       "imagem":  "Box de Banheiro/20130112_110649.jpg",
                       "titulo":  "Box de Banheiro",
                       "subtitulo":  "Projeto Residencial"
@@ -344,12 +338,6 @@
                   },
                   {
                       "categoria":  "box",
-                      "imagem":  "Box de Banheiro/IMG_20210510_114355067_HDR.jpg",
-                      "titulo":  "Box de Banheiro",
-                      "subtitulo":  "Projeto Residencial"
-                  },
-                  {
-                      "categoria":  "box",
                       "imagem":  "Box de Banheiro/IMG_20210902_163330408.jpg",
                       "titulo":  "Box de Banheiro",
                       "subtitulo":  "Projeto Residencial"
@@ -369,12 +357,6 @@
                   {
                       "categoria":  "box",
                       "imagem":  "Box de Banheiro/IMG_20211203_153418823.jpg",
-                      "titulo":  "Box de Banheiro",
-                      "subtitulo":  "Projeto Residencial"
-                  },
-                  {
-                      "categoria":  "box",
-                      "imagem":  "Box de Banheiro/IMG_20211223_173213534.jpg",
                       "titulo":  "Box de Banheiro",
                       "subtitulo":  "Projeto Residencial"
                   },
@@ -572,12 +554,6 @@
                   },
                   {
                       "categoria":  "moveis",
-                      "imagem":  "Moveis de Aluminio/IMG-20231011-WA0155.jpg",
-                      "titulo":  "Móveis de Alumínio",
-                      "subtitulo":  "Projeto Residencial"
-                  },
-                  {
-                      "categoria":  "moveis",
                       "imagem":  "Moveis de Aluminio/IMG-20240227-WA0029.jpg",
                       "titulo":  "Móveis de Alumínio",
                       "subtitulo":  "Projeto Residencial"
@@ -615,12 +591,6 @@
                   {
                       "categoria":  "moveis",
                       "imagem":  "Moveis de Aluminio/IMG-20250403-WA0158.jpg",
-                      "titulo":  "Móveis de Alumínio",
-                      "subtitulo":  "Projeto Residencial"
-                  },
-                  {
-                      "categoria":  "moveis",
-                      "imagem":  "Moveis de Aluminio/IMG-20250414-WA0084.jpg",
                       "titulo":  "Móveis de Alumínio",
                       "subtitulo":  "Projeto Residencial"
                   },
