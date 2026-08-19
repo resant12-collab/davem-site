@@ -9,8 +9,6 @@ locale: "pt"
 
 collections:
   - name: "guardacorpo"
-    editor:
-      preview: false
     label: "Guarda Corpo"
     label_singular: "Guarda Corpo"
     files:
@@ -31,8 +29,6 @@ collections:
               - { name: "subtitulo", label: "Descrição", widget: "string", default: "Projeto Residencial", required: false }
 
   - name: "corrimao"
-    editor:
-      preview: false
     label: "Corrimão"
     files:
       - name: "fotos"
@@ -52,8 +48,6 @@ collections:
               - { name: "subtitulo", label: "Descrição", widget: "string", default: "Projeto Residencial", required: false }
 
   - name: "box"
-    editor:
-      preview: false
     label: "Box de Banheiro"
     files:
       - name: "fotos"
@@ -73,8 +67,6 @@ collections:
               - { name: "subtitulo", label: "Descrição", widget: "string", default: "Projeto Residencial", required: false }
 
   - name: "portao"
-    editor:
-      preview: false
     label: "Portões"
     files:
       - name: "fotos"
@@ -94,8 +86,6 @@ collections:
               - { name: "subtitulo", label: "Descrição", widget: "string", default: "Projeto Residencial", required: false }
 
   - name: "moveis"
-    editor:
-      preview: false
     label: "Móveis de Alumínio"
     files:
       - name: "fotos"
@@ -115,8 +105,6 @@ collections:
               - { name: "subtitulo", label: "Descrição", widget: "string", default: "Projeto Residencial", required: false }
 
   - name: "cobertura"
-    editor:
-      preview: false
     label: "Cobertura e Pergolado"
     files:
       - name: "fotos"
