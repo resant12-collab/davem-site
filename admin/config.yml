@@ -8,30 +8,117 @@ public_folder: "/uploads"
 locale: "pt"
 
 collections:
-  - name: "galeria"
-    label: "Galeria de Fotos"
+  - name: "guardacorpo"
+    label: "Guarda Corpo"
+    label_singular: "Guarda Corpo"
     files:
       - name: "fotos"
-        label: "Fotos da Galeria"
-        file: "galeria.json"
-        description: "Adicione, edite ou remova as fotos que aparecem na galeria do site."
+        label: "Fotos — Guarda Corpo"
+        file: "galeria/guardacorpo.json"
         fields:
           - name: "itens"
             label: "Fotos"
             label_singular: "Foto"
             widget: "list"
-            summary: "{{fields.titulo}} — {{fields.categoria}}"
+            collapsed: true
+            add_to_top: true
+            summary: "{{fields.titulo}}"
             fields:
-              - { name: "imagem",    label: "Foto",       widget: "image" }
-              - name: "categoria"
-                label: "Categoria"
-                widget: "select"
-                options:
-                  - { label: "Guarda Corpo",          value: "guardacorpo" }
-                  - { label: "Corrimão",              value: "corrimao" }
-                  - { label: "Box de Banheiro",       value: "box" }
-                  - { label: "Portões",               value: "portao" }
-                  - { label: "Móveis de Alumínio",    value: "moveis" }
-                  - { label: "Cobertura e Pergolado", value: "cobertura" }
-              - { name: "titulo",    label: "Título",     widget: "string", default: "" }
-              - { name: "subtitulo", label: "Descrição",  widget: "string", default: "Projeto Residencial", required: false }
+              - { name: "imagem",    label: "Foto",      widget: "image" }
+              - { name: "titulo",    label: "Título",    widget: "string", default: "Guarda Corpo em Vidro" }
+              - { name: "subtitulo", label: "Descrição", widget: "string", default: "Projeto Residencial", required: false }
+
+  - name: "corrimao"
+    label: "Corrimão"
+    files:
+      - name: "fotos"
+        label: "Fotos — Corrimão"
+        file: "galeria/corrimao.json"
+        fields:
+          - name: "itens"
+            label: "Fotos"
+            label_singular: "Foto"
+            widget: "list"
+            collapsed: true
+            add_to_top: true
+            summary: "{{fields.titulo}}"
+            fields:
+              - { name: "imagem",    label: "Foto",      widget: "image" }
+              - { name: "titulo",    label: "Título",    widget: "string", default: "Corrimão em Inox" }
+              - { name: "subtitulo", label: "Descrição", widget: "string", default: "Projeto Residencial", required: false }
+
+  - name: "box"
+    label: "Box de Banheiro"
+    files:
+      - name: "fotos"
+        label: "Fotos — Box de Banheiro"
+        file: "galeria/box.json"
+        fields:
+          - name: "itens"
+            label: "Fotos"
+            label_singular: "Foto"
+            widget: "list"
+            collapsed: true
+            add_to_top: true
+            summary: "{{fields.titulo}}"
+            fields:
+              - { name: "imagem",    label: "Foto",      widget: "image" }
+              - { name: "titulo",    label: "Título",    widget: "string", default: "Box de Banheiro" }
+              - { name: "subtitulo", label: "Descrição", widget: "string", default: "Projeto Residencial", required: false }
+
+  - name: "portao"
+    label: "Portões"
+    files:
+      - name: "fotos"
+        label: "Fotos — Portões"
+        file: "galeria/portao.json"
+        fields:
+          - name: "itens"
+            label: "Fotos"
+            label_singular: "Foto"
+            widget: "list"
+            collapsed: true
+            add_to_top: true
+            summary: "{{fields.titulo}}"
+            fields:
+              - { name: "imagem",    label: "Foto",      widget: "image" }
+              - { name: "titulo",    label: "Título",    widget: "string", default: "Portão de Alumínio" }
+              - { name: "subtitulo", label: "Descrição", widget: "string", default: "Projeto Residencial", required: false }
+
+  - name: "moveis"
+    label: "Móveis de Alumínio"
+    files:
+      - name: "fotos"
+        label: "Fotos — Móveis de Alumínio"
+        file: "galeria/moveis.json"
+        fields:
+          - name: "itens"
+            label: "Fotos"
+            label_singular: "Foto"
+            widget: "list"
+            collapsed: true
+            add_to_top: true
+            summary: "{{fields.titulo}}"
+            fields:
+              - { name: "imagem",    label: "Foto",      widget: "image" }
+              - { name: "titulo",    label: "Título",    widget: "string", default: "Móveis de Alumínio" }
+              - { name: "subtitulo", label: "Descrição", widget: "string", default: "Projeto Residencial", required: false }
+
+  - name: "cobertura"
+    label: "Cobertura e Pergolado"
+    files:
+      - name: "fotos"
+        label: "Fotos — Cobertura e Pergolado"
+        file: "galeria/cobertura.json"
+        fields:
+          - name: "itens"
+            label: "Fotos"
+            label_singular: "Foto"
+            widget: "list"
+            collapsed: true
+            add_to_top: true
+            summary: "{{fields.titulo}}"
+            fields:
+              - { name: "imagem",    label: "Foto",      widget: "image" }
+              - { name: "titulo",    label: "Título",    widget: "string", default: "Cobertura e Pergolado" }
+              - { name: "subtitulo", label: "Descrição", widget: "string", default: "Projeto Residencial", required: false }

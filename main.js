@@ -100,6 +100,8 @@ document.querySelectorAll('.srv-tab').forEach(tab => {
 });
 
 /* ── Galeria dinâmica (editável pelo painel) ── */
+const GALERIA_CATEGORIAS = ['guardacorpo', 'corrimao', 'box', 'portao', 'moveis', 'cobertura'];
+
 function renderGaleria(itens) {
   const grid = document.getElementById('galleryGrid');
   if (!grid) return;
@@ -119,10 +121,15 @@ function renderGaleria(itens) {
   }).join('');
 }
 
-fetch('galeria.json?v=' + Date.now())
-  .then(r => r.json())
-  .then(data => renderGaleria(data.itens || []))
-  .catch(err => console.error('Erro ao carregar a galeria:', err));
+const cacheBust = '?v=' + Date.now();
+Promise.all(
+  GALERIA_CATEGORIAS.map(cat =>
+    fetch(`galeria/${cat}.json${cacheBust}`)
+      .then(r => (r.ok ? r.json() : { itens: [] }))
+      .then(data => (data.itens || []).map(it => ({ ...it, categoria: cat })))
+      .catch(() => [])
+  )
+).then(grupos => renderGaleria(grupos.flat()));
 
 /* ── Goto Gallery with filter ───────────── */
 document.querySelectorAll('.goto-gallery').forEach(btn => {
