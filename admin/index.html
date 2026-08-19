@@ -5,6 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex" />
   <title>DAVEM — Painel de Fotos</title>
+  <style>
+    /* Miniatura da foto maior dentro do formulário */
+    [class*="ImageWrapper"] img,
+    [class*="StyledImage"] {
+      max-width: 100% !important;
+      max-height: 340px !important;
+      width: auto !important;
+      height: auto !important;
+      object-fit: contain !important;
+      border-radius: 6px;
+    }
+    [class*="ImageWrapper"] {
+      max-width: 480px !important;
+      height: auto !important;
+    }
+  </style>
 </head>
 <body>
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
