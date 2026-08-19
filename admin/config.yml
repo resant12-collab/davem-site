@@ -2,6 +2,9 @@ backend:
   name: git-gateway
   branch: main
 
+site_url: "https://davemaluminio.com.br"
+display_url: "https://davemaluminio.com.br"
+logo_url: "https://davemaluminio.com.br/logo.png"
 media_folder: "uploads"
 public_folder: "/uploads"
 
