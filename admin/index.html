@@ -6,6 +6,65 @@
   <meta name="robots" content="noindex" />
   <title>DAVEM — Painel de Fotos</title>
   <style>
+    /* ── Identidade visual DAVEM ── */
+    :root {
+      --davem-blue:      #0d2244;
+      --davem-blue-dark: #0a1628;
+      --davem-blue-mid:  #1a3a6e;
+      --davem-red:       #c8151b;
+      --davem-red-dark:  #a01015;
+    }
+
+    /* Barra superior */
+    [class*="AppHeader"] {
+      background-color: var(--davem-blue) !important;
+      background-image: none !important;
+    }
+    [class*="AppHeaderNavLink"],
+    [class*="AppHeaderSiteLink"],
+    [class*="AppHeaderButton"] {
+      color: #fff !important;
+    }
+    [class*="AppHeaderNavLink"]:hover,
+    [class*="AppHeaderButton"]:hover {
+      background-color: var(--davem-blue-mid) !important;
+    }
+    [class*="AppHeaderQuickNewButton"] {
+      background-color: var(--davem-red) !important;
+      color: #fff !important;
+    }
+    [class*="AppHeaderQuickNewButton"]:hover {
+      background-color: var(--davem-red-dark) !important;
+    }
+
+    /* Menu lateral das categorias */
+    [class*="SidebarNavLink"][class*="active"],
+    [class*="SidebarNavLink"].active {
+      background-color: var(--davem-blue) !important;
+      color: #fff !important;
+    }
+    [class*="SidebarHeading"] {
+      color: var(--davem-blue) !important;
+    }
+
+    /* Botão Publicar */
+    [class*="PublishButton"],
+    [class*="PublishedButton"] {
+      background-color: var(--davem-red) !important;
+      color: #fff !important;
+    }
+    [class*="PublishButton"]:hover,
+    [class*="PublishedButton"]:hover {
+      background-color: var(--davem-red-dark) !important;
+    }
+
+    /* Tela de login */
+    [class*="AuthForm"] [class*="LoginButton"],
+    section[class*="css-"] button[class*="LoginButton"] {
+      background-color: var(--davem-red) !important;
+      color: #fff !important;
+    }
+
     /* Miniatura da foto no formulário */
     [class*="ImageWrapper"] img,
     [class*="StyledImage"] {
